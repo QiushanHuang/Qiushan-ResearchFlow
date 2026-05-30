@@ -89,19 +89,19 @@ flowchart TD
 You can say this directly in a Codex thread:
 
 ```text
-把当前项目接入 ResearchFlow。这个项目可以创建 .researchflow，你来完成接入、验证和记录。
+Connect the current project to ResearchFlow. This project may create .researchflow; complete the onboarding, validation, and logging.
 ```
 
 Or:
 
 ```text
-把 /abs/path/to/old-project 兼容接入 ResearchFlow。不要修改那个项目目录，用旧项目零侵入方式完成接入、验证和记录。
+Connect /abs/path/to/old-project to ResearchFlow in compatibility mode. Do not modify that project directory; use the zero-intrusion legacy path, then validate and record the result.
 ```
 
 Or in a ResearchFlow project thread:
 
 ```text
-请把 /abs/path/to/project 接入我的 ResearchFlow 工作流。能写入项目目录就用原生方式，不能确定就先问我。
+Please connect /abs/path/to/project to my ResearchFlow workflow. If the project directory can be written, use native mode; if unsure, ask me first.
 ```
 
 ## Repository Layout

@@ -378,6 +378,7 @@ Messy original user input.
         self.assertIn("docs/user-manual.md", readme)
         self.assertIn("docs/technical-manual.md", readme)
         self.assertIn("docs/local-public-sync.md", readme)
+        self.assertIn("Connect the current project to ResearchFlow. This project may create .researchflow", readme)
         self.assertIn("把当前项目接入 ResearchFlow。这个项目可以创建 .researchflow", readme)
         self.assertIn("https://img.shields.io/static/v1?label=workflow", readme)
         self.assertIn("## Philosophy", readme)
