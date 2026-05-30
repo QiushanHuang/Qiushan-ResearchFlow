@@ -2,10 +2,17 @@
 
 [![Docs](https://img.shields.io/badge/docs-English%20%7C%20%E4%B8%AD%E6%96%87-16a34a)](#中文说明)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](#validation)
+[![Workflow](https://img.shields.io/static/v1?label=workflow&message=intent-driven&color=7c3aed)](#philosophy)
 
 ResearchFlow is an index-first workflow framework for agent-assisted research, experimentation, and project execution. It is designed for environments where long conversations, heterogeneous files, simulation artifacts, cross-project knowledge, and personal research habits can easily exceed an agent's working context.
 
 The framework treats context as a scarce research resource. Agents first read compact indexes, then open evidence only when the task requires it. This keeps token cost low, reduces memory drift, and makes the reasoning path auditable.
+
+## Philosophy
+
+ResearchFlow is built around a simple thesis: the human should spend attention on creative research judgment, while agents should absorb mechanical, repeated, and verifiable work after the first successful human-agent run has clarified intent.
+
+An agent should not be reduced to a brittle sequence of point commands. It should operate from purpose, evidence, boundaries, and reusable procedures. Natural language remains the primary interface because a well-scoped intention gives the agent room to choose the right tool, while ResearchFlow's indexes, validators, and review gates keep that flexibility from becoming uncontrolled behavior.
 
 ## Project Characteristics
 
@@ -79,30 +86,23 @@ flowchart TD
 
 ## Quick Start
 
-In a Codex thread, users can ask ResearchFlow to connect a project through natural language. The normal entry forms are:
+You can say this directly in a Codex thread:
 
 ```text
-Connect the current project to ResearchFlow. This project may create .researchflow; complete onboarding, validation, and logging.
+把当前项目接入 ResearchFlow。这个项目可以创建 .researchflow，你来完成接入、验证和记录。
 ```
 
-or:
+Or:
 
 ```text
-Connect /abs/path/to/old-project to ResearchFlow in compatibility mode. Do not modify that project directory; use the zero-intrusion legacy path, validate it, and record the result.
+把 /abs/path/to/old-project 兼容接入 ResearchFlow。不要修改那个项目目录，用旧项目零侵入方式完成接入、验证和记录。
 ```
 
-or, from a ResearchFlow project thread:
+Or in a ResearchFlow project thread:
 
 ```text
-Connect /abs/path/to/project to my ResearchFlow workflow. If the project directory can be written, use native mode; if unsure, ask me first.
+请把 /abs/path/to/project 接入我的 ResearchFlow 工作流。能写入项目目录就用原生方式，不能确定就先问我。
 ```
-
-The framework selects one of two adapter modes:
-
-- **Native mode** creates `<project-root>/.researchflow/project.rf.yaml`.
-- **Legacy mode** creates `project-interfaces/legacy/<safe-project-id>/project.rf.yaml` inside ResearchFlow and leaves the target project unchanged.
-
-The user does not need to manually run shell commands during normal onboarding. Scripts remain available as deterministic internal tools and for transparent verification.
 
 ## Repository Layout
 
@@ -161,10 +161,17 @@ This release is a public framework skeleton, documentation set, and validation r
 
 [![文档](https://img.shields.io/badge/%E6%96%87%E6%A1%A3-English%20%7C%20%E4%B8%AD%E6%96%87-16a34a)](#researchflow)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](#validation)
+[![Workflow](https://img.shields.io/static/v1?label=workflow&message=intent-driven&color=7c3aed)](#philosophy)
 
 ResearchFlow 是一个面向 agent 辅助科研、实验和项目执行的 index-first 工作流框架。它适用于长对话、复杂文件、大量模拟结果、跨项目知识和个人科研习惯容易超过 agent 工作上下文的场景。
 
 框架把上下文视为稀缺科研资源。Agent 应先读高密度索引，再按任务需要打开证据正文，从而降低 token 消耗、减少记忆漂移，并让推理路径可复查。
+
+## 理念
+
+ResearchFlow 的核心判断是：人应该把注意力留给创造性的科研判断，agent 应该在第一次人机协作跑通意图之后，承担机械、重复、可验证的工作。
+
+Agent 不应该只是僵硬执行一串点对点指令。它应围绕目的、证据、边界和可复用流程工作。自然语言是主要入口，因为清晰的意图能给 agent 留出选择合适工具的空间；而 ResearchFlow 的索引、校验器和 review gate 会约束这种灵活性，避免它变成不可控行为。
 
 ## 项目特点
 
@@ -255,13 +262,6 @@ flowchart TD
 ```text
 请把 /abs/path/to/project 接入我的 ResearchFlow 工作流。能写入项目目录就用原生方式，不能确定就先问我。
 ```
-
-框架会选择两种 adapter 模式之一：
-
-- **原生模式**：在项目内创建 `<project-root>/.researchflow/project.rf.yaml`。
-- **旧项目兼容模式**：在 ResearchFlow 内创建 `project-interfaces/legacy/<safe-project-id>/project.rf.yaml`，不修改目标项目目录。
-
-用户正常使用时不需要手动运行命令。脚本仍作为 agent 内部的确定性执行工具，也可用于透明验证。
 
 ## 仓库结构
 
