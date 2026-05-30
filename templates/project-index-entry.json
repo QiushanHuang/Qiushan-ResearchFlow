@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "project:example",
+  "kind": "project",
+  "title": "Example Project",
+  "status": "active",
+  "path": "/abs/path/to/project/.researchflow/project.rf.yaml",
+  "created_at": "2026-05-30",
+  "updated_at": "2026-05-30",
+  "checksum": "",
+  "read_policy": "adapter_first",
+  "adapter_path": "/abs/path/to/project/.researchflow/project.rf.yaml",
+  "project_root": "/abs/path/to/project",
+  "fact_status": "pointer",
+  "truth_boundary": {
+    "not_project_fact": true,
+    "source": "project-adapter"
+  }
+}

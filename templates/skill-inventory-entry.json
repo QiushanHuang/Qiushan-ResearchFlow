@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "skill:example",
+  "kind": "codex-skill",
+  "title": "Example Skill",
+  "status": "active",
+  "path": "skills-registry/inventory/codex-available-2026-05-30.md",
+  "created_at": "2026-05-30",
+  "updated_at": "2026-05-30",
+  "checksum": "",
+  "read_policy": "index_only",
+  "skill_name": "example",
+  "trigger_summary": "Use when the task matches the skill trigger.",
+  "source_root": "r0",
+  "skill_path": "r0/example/SKILL.md",
+  "recommended_for": ["example_task"],
+  "avoid_for": ["unrelated_task"]
+}

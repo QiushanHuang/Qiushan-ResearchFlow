@@ -1,0 +1,156 @@
+schema_version: 1
+framework: researchflow
+root: .
+
+state_machine:
+  main:
+    - intake
+    - triage
+    - plan
+    - run
+    - digest
+    - claim
+    - review
+    - done
+  branches:
+    - needs_user
+    - needs_upgrade
+    - blocked
+    - memory_proposed
+    - memory_applied
+    - upgrade_proposed
+    - upgrade_applied
+    - aborted
+
+default_read:
+  - README.md
+  - framework/philosophy.md
+  - framework/identity.md
+  - framework/boundaries.md
+  - framework/state-machine.md
+  - framework/tiering.md
+  - framework/context-loading.md
+  - indexes/project.index.jsonl
+  - indexes/knowledge.index.jsonl
+
+commands:
+  intake: commands/intake.md
+  triage: commands/triage.md
+  plan: commands/plan.md
+  context_load: commands/context-load.md
+  run: commands/run.md
+  digest: commands/digest.md
+  claim: commands/claim.md
+  review: commands/review.md
+  reusable_actions: commands/reusable-actions.md
+  subagent_five_pass_review: commands/subagent-five-pass-review.md
+  validate: commands/validate.md
+  memory_propose: commands/memory-propose.md
+  memory_apply: commands/memory-apply.md
+  upgrade_propose: commands/upgrade-propose.md
+  upgrade_apply: commands/upgrade-apply.md
+  skill_inventory: commands/skill-inventory.md
+  skill_usage_log: commands/skill-usage-log.md
+  skill_select: commands/skill-select.md
+  project_interface: commands/project-interface.md
+  project_connect: commands/project-connect.md
+  project_procedure: commands/project-procedure.md
+  evolution_capture: commands/evolution-capture.md
+  evolution_triage: commands/evolution-triage.md
+  evolution_journal: commands/evolution-journal.md
+  evolution_candidate: commands/evolution-candidate.md
+  evolution_resolve: commands/evolution-resolve.md
+  evolution_self_check: commands/evolution-self-check.md
+
+skills:
+  intake_router: skills/rf-intake-router/SKILL.md
+  vaf_workflow: skills/rf-vaf-workflow/SKILL.md
+  knowledge_access: skills/rf-knowledge-access/SKILL.md
+  review_gate: skills/rf-review-gate/SKILL.md
+  memory_upgrade_governance: skills/rf-memory-upgrade-governance/SKILL.md
+  evolution_governance: skills/rf-evolution-governance/SKILL.md
+  skill_governance: skills/rf-skill-governance/SKILL.md
+  project_interface_router: skills/rf-project-interface-router/SKILL.md
+  project_native_onboarding: skills/rf-project-native-onboarding/SKILL.md
+  project_legacy_onboarding: skills/rf-project-legacy-onboarding/SKILL.md
+
+index_entrypoints:
+  documentation: indexes/documentation.index.jsonl
+  projects: indexes/project.index.jsonl
+  project_links: indexes/project-link.index.jsonl
+  knowledge: indexes/knowledge.index.jsonl
+  library: indexes/library.index.jsonl
+  experiments: indexes/experiment.registry.jsonl
+  artifacts: indexes/artifact.index.jsonl
+  rss_issues: indexes/rss.issue.index.jsonl
+  claims: indexes/claim.index.jsonl
+  skills: indexes/skill.index.jsonl
+  skill_usage: indexes/skill-usage.index.jsonl
+  prompts: indexes/prompt.index.jsonl
+  project_interfaces: indexes/project-interface.index.jsonl
+  resources: indexes/resource.index.jsonl
+  storage: indexes/storage.index.jsonl
+  task_routes: indexes/task-route.index.jsonl
+
+skip_by_default:
+  - "**/logs/**"
+  - "**/artifacts/**"
+  - "**/_tmp/**"
+  - "**/_deprecated/**"
+  - "**/raw/**"
+  - "**/*.parquet"
+  - "**/*.ckpt"
+  - "**/*.bin"
+  - "**/*.npy"
+
+memory_policy:
+  controller_can_apply_memory: false
+  human_approval_required_for_apply: true
+  project_to_universal_requires_bridge: true
+
+upgrade_policy:
+  controller_can_apply_upgrade: false
+  human_approval_required_for_apply: true
+  proposal_required: true
+
+evolution_policy:
+  signal_layer_only: true
+  controller_can_apply_memory: false
+  controller_can_apply_upgrade: false
+  default_read_policy: index_only
+  body_read_policy: on_demand
+
+resource_policy:
+  recommendations_only: true
+  auto_execute_allowed: false
+  manual_confirmation_required: true
+
+skill_policy:
+  inventory_read_policy: index_only
+  usage_log_required_for_project_reuse: true
+  project_local_usage_path: .researchflow/skills/usage.index.jsonl
+  framework_usage_index: indexes/skill-usage.index.jsonl
+
+creative_policy:
+  human_creative_authority: true
+  agent_mechanical_execution: true
+  human_approved_run_required_for_repeat_procedure: true
+  repeat_work_should_create_candidate: true
+
+representation_policy:
+  represents_execution_not_identity: true
+  impersonation_allowed: false
+  external_commitment_requires_explicit_confirmation: true
+  default_external_output_status: draft
+
+habit_learning_policy:
+  evidence_required: true
+  scope_required: true
+  invalidation_required: true
+  single_observation_to_universal_memory_allowed: false
+  human_approval_required_for_apply: true
+
+project_boundary_policy:
+  global_project_index_pointer_only: true
+  adapter_is_local_authority: true
+  local_private_export_allowed: false

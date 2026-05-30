@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "storage:research-ssd",
+  "kind": "storage-location",
+  "title": "Research SSD",
+  "status": "active",
+  "path": "resources/storage/research-ssd.md",
+  "created_at": "2026-05-30",
+  "updated_at": "2026-05-30",
+  "checksum": "",
+  "read_policy": "index_only",
+  "storage_type": "external_ssd",
+  "format": "APFS",
+  "capacity_gb": 4000,
+  "free_gb": 1200,
+  "location": "desk",
+  "mounted_on": ["resource:mbp-local"],
+  "suitable_tasks": ["dataset_store", "artifact_archive"],
+  "avoid_tasks": ["multi_user_shared_write"],
+  "last_seen_at": "2026-05-30"
+}

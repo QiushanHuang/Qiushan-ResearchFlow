@@ -1,0 +1,17 @@
+schema_version: 1
+kind: local-private
+project_id: project:example
+
+# Copy this file to <project-root>/.researchflow/local.private.yaml if needed.
+# Do not commit real secrets.
+
+local_paths:
+  private_data:
+
+access:
+  ssh_aliases: []
+  notes:
+
+secrets:
+  # Store secret names or references here, not secret values.
+  references: []

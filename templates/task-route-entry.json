@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "route:lammps-cpu-medium",
+  "kind": "task-route",
+  "title": "LAMMPS medium CPU simulation",
+  "status": "active",
+  "path": "resources/routes/lammps-cpu-medium.md",
+  "created_at": "2026-05-30",
+  "updated_at": "2026-05-30",
+  "checksum": "",
+  "read_policy": "index_only",
+  "task_tags": ["simulation", "cpu_parallel", "long_running"],
+  "requires": {
+    "cpu_cores_min": 32,
+    "memory_gb_min": 64,
+    "storage_free_gb_min": 200
+  },
+  "prefers": {
+    "resource_ids": ["resource:server-a"],
+    "storage_ids": ["storage:server-a-work"],
+    "data_locality": "near_input"
+  },
+  "avoid": {
+    "resource_ids": ["resource:mbp-local"]
+  },
+  "assignment_policy": "manual_confirm",
+  "manual_review_on_conflict": true
+}

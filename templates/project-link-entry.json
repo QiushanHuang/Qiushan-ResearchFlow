@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "plink:example-to-old",
+  "kind": "project-link",
+  "title": "Example shares method with old project",
+  "status": "active",
+  "path": "indexes/project-link.index.jsonl",
+  "created_at": "2026-05-30",
+  "updated_at": "2026-05-30",
+  "checksum": "",
+  "read_policy": "index_only",
+  "from_project_id": "project:example",
+  "to_project_id": "project:old",
+  "link_type": "shares_method",
+  "fact_policy": "not_project_fact",
+  "fact_transfer_allowed": false,
+  "evidence_refs": []
+}

@@ -1,0 +1,2 @@
+{"schema_version":1,"id":"project-index-root","kind":"project-index","title":"Public project index","status":"active","path":"rf.yaml","created_at":"2026-05-30","updated_at":"2026-05-30","checksum":"","read_policy":"index_only"}
+{"schema_version":1,"id":"project:researchflow-public","kind":"project","title":"ResearchFlow public framework","status":"active","path":"rf.yaml","created_at":"2026-05-30","updated_at":"2026-05-30","checksum":"","read_policy":"index_only","fact_status":"pointer","truth_boundary":{"not_project_fact":true,"source":"public-release"}}

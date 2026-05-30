@@ -1,0 +1,77 @@
+schema_version: 1
+kind: project-adapter
+adapter_mode: native
+project_id: project:example
+title: Example Project
+status: active
+
+framework:
+  root: /abs/path/to/agent-framework/researchflow
+  project_index_id: project:example
+
+paths:
+  project_root: /abs/path/to/project
+  adapter_root: /abs/path/to/project/.researchflow
+  project_memory: .researchflow/memory/project.md
+  local_indexes:
+    artifacts: .researchflow/indexes/artifact.index.jsonl
+    experiments: .researchflow/indexes/experiment.index.jsonl
+    creative_passes: .researchflow/indexes/creative-pass.index.jsonl
+    golden_runs: .researchflow/indexes/golden-run.index.jsonl
+    procedures: .researchflow/indexes/procedure.index.jsonl
+    repeat_runs: .researchflow/indexes/repeat-run.index.jsonl
+    exceptions: .researchflow/indexes/exception.index.jsonl
+    knowledge: .researchflow/indexes/knowledge.index.jsonl
+    tasks: .researchflow/indexes/task.index.jsonl
+    skill_usage: .researchflow/skills/usage.index.jsonl
+
+execution_policy:
+  human_role: creative_judgment
+  agent_role: mechanical_execution
+  identity_boundary: agent_executes_not_represents_identity
+  procedure_state_model: use_existing_researchflow_state_machine
+  exception_route: needs_user
+
+write_policy:
+  writes_to_project: true
+  allowed_roots:
+    - .researchflow/**
+
+context_policy:
+  default: adapter_first
+  body_loading: explicit_reference_only
+  forbid_deep_scan: true
+
+memory_policy:
+  habit_learning_requires_evidence_chain: true
+  project_to_universal_requires_bridge: true
+  apply_requires_review: true
+
+upgrade_policy:
+  proposal_required: true
+  auto_apply: false
+
+golden_run:
+  default_id:
+  selection_policy: approved_only
+
+sync:
+  authority: local_project
+  adapter_revision: 1
+  last_synced_at:
+  global_revision_seen:
+
+privacy:
+  export_allowed: false
+  contains_private_data: true
+  writes_to_project_allowed: true
+  secrets_file: .researchflow/local.private.yaml
+
+read_policy:
+  default: adapter_first
+  skip_by_default:
+    - logs/**
+    - raw/**
+    - artifacts/**
+    - "*.ckpt"
+    - "*.npy"

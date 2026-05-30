@@ -1,0 +1,45 @@
+schema_version: 1
+common_index_required:
+  - schema_version
+  - id
+  - kind
+  - title
+  - status
+  - path
+  - created_at
+  - updated_at
+  - checksum
+  - read_policy
+read_policies:
+  - index_only
+  - on_demand
+  - adapter_first
+  - registry_only
+  - skip
+fact_statuses:
+  - pointer
+  - candidate
+  - observed
+  - verified
+  - stale
+  - conflict
+boundary_kinds:
+  - external-library
+  - external-library-source
+  - rss
+  - rss-issue-index
+  - evolution-item
+  - evolution-journal
+  - evolution-candidate
+  - evolution-resolution
+  - evolution-self_check
+  - project-link
+  - skill-inventory-snapshot
+  - skill-usage
+danger_fields:
+  apply_allowed: false
+  auto_execute_allowed: false
+memory_target_layers:
+  - project
+  - bridge
+  - universal
